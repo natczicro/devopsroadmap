@@ -16,7 +16,7 @@ echo -e "\nDisk usage with df -H"
 echo "$(df -H /mnt/c/ | grep "C:" | awk '{print "Total="$2 "\nUsed=" $3 "\nAvailable=" $4 "\nPercent Used=" $5}')"
 
 echo -e "\nTop Five CPU with ps aux"
-echo "$(ps aux | sort -nrk 3 | head -n 5)"
+echo "$(ps aux | head -n1; ps aux | sort -nrk 3 | head -n 5 | cut -c-150)"
 
 echo -e "\nTop Five Memory with ps aux"
-echo "$(ps aux | sort -nrk 4 | head -n 5)"
+echo "$(ps aux | head -n1; ps aux | sort -nrk 4 | head -n 5 | cut -c-150)"
